@@ -1,0 +1,9 @@
+<h2>User</h2>
+<br />
+<ul>
+  <% @user.picks.each do |p| %>
+    <li>
+      <%= p.name %>
+    </li>
+  <% end %>
+</ul>
