@@ -4,24 +4,6 @@ class EntriesController < ApplicationController
   end
 
   def edit
-    @tournaments = [
-      {
-        name: 'American',
-        teams: [
-          'Central Florida',
-          'Memphis',
-          'South Florida'
-        ]
-      },
-      {
-        name: 'ACC',
-        teams: []
-      },
-      {
-        name: 'Atlantic 10',
-        teams: []
-      }
-    ]
     @entry = Entry.find(params[:id])
   end
 
