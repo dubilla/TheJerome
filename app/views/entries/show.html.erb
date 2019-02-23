@@ -1,3 +1,5 @@
 <h2>Your Entry</h2>
 
-
+<% if current_user.entry == @entry %>
+  <%= link_to 'Edit Entry', edit_entry_path(@entry) %>
+<% end %>

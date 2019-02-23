@@ -1,0 +1,16 @@
+<h2>Edit Entry</h2>
+
+
+<h2>Make Picks</h2>
+
+<%= form_for @entry, url: {action: "update"} do |f| %>
+  <% fields_for :picks do %>
+    <% @tournaments.each do |t| %>
+      <fieldset>
+        <label><%= t[:name] %></label>
+        <%= select_tag(:pick, options_for_select(t[:teams])) %>
+      </fieldset>
+    <% end %>
+  <% end %>
+  <%= f.submit %>
+<% end %>
