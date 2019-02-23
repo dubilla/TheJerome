@@ -1,0 +1,17 @@
+<h2>Entry</h2>
+
+<%= form_for(@entry) do |f| %>
+  <%= f.fields_for :picks, hidden_field_id: true do |pf| %>
+    <fieldset>
+      <%= pf.hidden_field :tournament_id, value: pf.object.tournament_id %>
+      <div><%= pf.object.tournament.name %></div>
+      <% pf.object.tournament.teams.each do |t| %>
+        <%= label_tag "team-#{t.id}", t.name do %>
+          <%= pf.radio_button "team_id", t.id, { checked: t.id == pf.object.team_id, id: "team-#{t.id}" } %>
+          <%= t.name %>
+        <% end %>
+      <% end %>
+    </fieldset>
+  <% end %>
+  <%= f.submit %>
+<% end %>

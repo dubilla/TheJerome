@@ -1,5 +1,7 @@
 <h2>Welcome to The Jerome</h2>
 
-<% if current_user.entry.present? %>
+<% if user_signed_in? && current_user.entry.present? %>
   <%= link_to 'Your Entry', current_user.entry %>
+<% else %>
+  <%= link_to 'Create Entry', new_entry_path %>
 <% end %>

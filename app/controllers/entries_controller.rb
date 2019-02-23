@@ -1,4 +1,10 @@
 class EntriesController < ApplicationController
+  def new
+    @entry = Entry.new({
+      picks_attributes: Tournament.all.map{|t| Pick.new(tournament_id: t.id)}.map(&:attributes)
+    })
+  end
+
   def show
     @entry = Entry.find(params[:id])
   end
@@ -13,6 +19,16 @@ class EntriesController < ApplicationController
       redirect_to @entry
     else
       render 'edit'
+    end
+  end
+
+  def create
+    @entry = Entry.new(entry_params)
+    @entry.user = current_user
+    if @entry.save
+      redirect_to @entry
+    else
+      render 'new'
     end
   end
 
