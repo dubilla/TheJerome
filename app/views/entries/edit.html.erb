@@ -6,7 +6,7 @@
       <div><%= pf.object.tournament.name %></div>
       <% pf.object.tournament.teams.each do |t| %>
         <%= label_tag "team-#{t.id}", t.name do %>
-          <%= pf.radio_button "team_id", t.id, { checked: pf.object.team_id == p.id, id: "team-#{t.id}" } %>
+          <%= pf.radio_button "team_id", t.id, { checked: t.id == pf.object.team_id, id: "team-#{t.id}" } %>
           <%= t.name %>
         <% end %>
       <% end %>
