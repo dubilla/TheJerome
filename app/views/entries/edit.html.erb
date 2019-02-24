@@ -4,10 +4,9 @@
   <fieldset class="mb-2">
     <%= f.fields_for :picks do |pf| %>
         <p class="block text-grey-darker text-sm font-bold mb-2"><%= pf.object.tournament.name %></p>
-        <% pf.object.tournament.teams.each do |t| %>
-          <%= label_tag "team-#{t.id}", t.name do %>
-            <%= pf.radio_button "team_id", t.id, { checked: t.id == pf.object.team_id, id: "team-#{t.id}" } %>
-            <%= t.name %>
+        <%= pf.select :team_id do %>
+          <% pf.object.tournament.teams.each do |t| %>
+            <%= content_tag(:option, t.name, value: t.id, selected: t.id == pf.object.team_id, id: "team-#{t.id}") %>
           <% end %>
         <% end %>
     <% end %>
