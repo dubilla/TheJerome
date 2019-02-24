@@ -12,17 +12,23 @@
   <body>
     <div class="container px-8 py-4">
       <h1>The Jerome</h1>
-      <nav class="my-8">
-        <%= link_to "Home", root_path %>
-        <% if user_signed_in? && current_user.entry.present? %>
-          <%= link_to 'Your Entry', current_user.entry %>
-        <% end %>
+      <nav class="my-6 p-4 rounded overflow-hidden border border-grey-light">
+        <ul class="list-reset flex">
+          <li class="mr-6">
+            <%= link_to "Home", root_path, class: "text-blue hover:text-blue-darker" %>
+          </li>
+          <% if user_signed_in? && current_user.entry.present? %>
+            <li class="mr-6">
+              <%= link_to 'Your Entry', current_user.entry, class: "text-blue hover:text-blue-darker" %>
+            </li>
+          <% end %>
+        </ul>
       </nav>
 
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
-      <div class="container mb-8">
+      <div class="container mb-8 p-4">
         <%= yield %>
       </div>
 
