@@ -1,16 +1,16 @@
-<h2>Make Picks</h2>
+<h2 class="text-xl">Make Picks</h2>
 
 <%= form_for @entry do |f| %>
-  <%= f.fields_for :picks do |pf| %>
-    <fieldset>
-      <div><%= pf.object.tournament.name %></div>
-      <% pf.object.tournament.teams.each do |t| %>
-        <%= label_tag "team-#{t.id}", t.name do %>
-          <%= pf.radio_button "team_id", t.id, { checked: t.id == pf.object.team_id, id: "team-#{t.id}" } %>
-          <%= t.name %>
+  <fieldset class="mb-2">
+    <%= f.fields_for :picks do |pf| %>
+        <p class="block text-grey-darker text-sm font-bold mb-2"><%= pf.object.tournament.name %></p>
+        <% pf.object.tournament.teams.each do |t| %>
+          <%= label_tag "team-#{t.id}", t.name do %>
+            <%= pf.radio_button "team_id", t.id, { checked: t.id == pf.object.team_id, id: "team-#{t.id}" } %>
+            <%= t.name %>
+          <% end %>
         <% end %>
-      <% end %>
-    </fieldset>
-  <% end %>
-  <%= f.submit %>
+    <% end %>
+  </fieldset>
+  <%= f.submit class: "btn btn-blue" %>
 <% end %>

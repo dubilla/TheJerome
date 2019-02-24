@@ -10,19 +10,23 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="container px-8 py-4">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-    <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
 
-    <br />
-    <br />
-    <hr />
-    <br />
-    <% if user_signed_in? %>
-      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-    <% else %>
-      <%= link_to('Log in', new_user_session_path) %>
-    <% end %>
+      <br />
+      <br />
+      <hr />
+      <br />
+      <% if user_signed_in? %>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+      <% else %>
+        <%= link_to('Log in', new_user_session_path) %>
+      <% end %>
+    </div>
   </body>
 </html>
