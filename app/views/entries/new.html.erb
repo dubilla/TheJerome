@@ -1,17 +1,27 @@
-<h2>Entry</h2>
+<h2 class="text-xl mb-4">Entry</h2>
 
 <%= form_for(@entry) do |f| %>
-  <%= f.fields_for :picks, hidden_field_id: true do |pf| %>
-    <fieldset>
+  <fieldset>
+    <%= f.fields_for :picks, hidden_field_id: true do |pf| %>
       <%= pf.hidden_field :tournament_id, value: pf.object.tournament_id %>
-      <div><%= pf.object.tournament.name %></div>
-      <% pf.object.tournament.teams.each do |t| %>
-        <%= label_tag "team-#{t.id}", t.name do %>
-          <%= pf.radio_button "team_id", t.id, { checked: t.id == pf.object.team_id, id: "team-#{t.id}" } %>
-          <%= t.name %>
+      <div class="mb-4">
+        <p class="block text-grey-darker text-sm font-bold mb-2">
+          <%= pf.object.tournament.name %>
+        </p>
+      <div class="mb-2 inline-block relative w-64">
+        <%= pf.select :team_id, nil, {}, class: "block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" do %>
+          <% pf.object.tournament.teams.each do |t| %>
+            <%= content_tag(:option, t.name, value: t.id, selected: t.id == pf.object.team_id, id: "team-#{t.id}") %>
+          <% end %>
         <% end %>
-      <% end %>
-    </fieldset>
-  <% end %>
-  <%= f.submit %>
+        <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
+          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </fieldset>
+  <div class="block">
+    <%= f.submit "Save Picks", class: "btn btn-blue" %>
+  </div>
 <% end %>
