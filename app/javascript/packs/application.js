@@ -9,4 +9,6 @@
 
 console.log('Hello World from Webpacker')
 import "src/application.css"
-import "jquery_ujs"
+import Rails from "rails-ujs";
+
+Rails.start();
