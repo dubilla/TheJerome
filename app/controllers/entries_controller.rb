@@ -10,7 +10,7 @@ class EntriesController < ApplicationController
   end
 
   def edit
-    @entry = Entry.find(params[:id])
+    @entry = Entry.includes(:picks).find(params[:id])
   end
 
   def update

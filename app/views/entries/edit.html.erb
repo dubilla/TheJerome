@@ -2,7 +2,7 @@
 
 <%= form_for @entry do |f| %>
   <fieldset>
-    <%= f.fields_for :picks do |pf| %>
+    <%= f.fields_for :picks, @entry.picks.joins(:tournament).order("tournaments.name ASC") do |pf| %>
       <p class="block text-grey-darker text-sm font-bold mb-2"><%= pf.object.tournament.name %></p>
       <div class="mb-2 inline-block relative w-64">
         <%= pf.select :team_id, nil, {}, class: "block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" do %>
