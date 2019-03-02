@@ -6,6 +6,10 @@ class EntryPolicy
     @entry = entry
   end
 
+  def edit?
+    entry == user.entry
+  end
+
   def update?
     entry == user.entry
   end

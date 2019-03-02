@@ -11,6 +11,7 @@ class EntriesController < ApplicationController
 
   def edit
     @entry = Entry.includes(:picks).find(params[:id])
+    authorize @entry
   end
 
   def update
