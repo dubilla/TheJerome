@@ -2,7 +2,7 @@
 
 <%= form_for @entry do |f| %>
   <fieldset>
-    <%= f.fields_for :picks, @entry.picks.joins(:tournament).order("starts_at, tournaments.name ASC") do |pf| %>
+    <%= f.fields_for :picks, @entry.picks do |pf| %>
       <div class="mb-4">
         <p class="block text-grey-darker text-sm font-bold mb-2 w-64">
           <span class="text-left">
@@ -14,7 +14,7 @@
         </p>
         <div class="mb-2 inline-block relative w-64">
           <%= pf.select :team_id, nil, {}, class: "block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" do %>
-            <% pf.object.tournament.teams.order(:name).each do |t| %>
+            <% pf.object.tournament.teams.each do |t| %>
               <%= content_tag(:option, t.name, value: t.id, selected: t.id == pf.object.team_id, id: "team-#{t.id}") %>
             <% end %>
           <% end %>

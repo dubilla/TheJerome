@@ -10,7 +10,7 @@ class EntriesController < ApplicationController
   end
 
   def edit
-    @entry = Entry.includes(:picks).find(params[:id])
+    @entry = Entry.includes(picks: [tournament: :teams]).order("tournaments.starts_at, tournaments.name ASC, teams.name").find(params[:id])
     authorize @entry
   end
 
