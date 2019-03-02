@@ -4,13 +4,14 @@
     <title>TheJerome</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= javascript_pack_tag 'application' %>
     <%= stylesheet_pack_tag 'application' %>
   </head>
 
   <body>
-    <div class="container px-8 py-4">
+    <div class="px-8 py-4">
       <h1>The Jerome</h1>
       <nav class="my-6 p-4 rounded overflow-hidden border border-grey-light">
         <ul class="list-reset flex">
@@ -28,7 +29,7 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
-      <div class="container mb-8 p-4">
+      <div class="mb-8 p-4">
         <%= yield %>
       </div>
 
