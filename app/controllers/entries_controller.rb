@@ -15,6 +15,7 @@ class EntriesController < ApplicationController
 
   def update
     @entry = Entry.find(params[:id])
+    authorize @entry
     if @entry.update_attributes(entry_params)
       redirect_to @entry
     else
