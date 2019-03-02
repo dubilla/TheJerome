@@ -2,7 +2,7 @@
 
 <%= form_for @entry do |f| %>
   <fieldset>
-    <%= f.fields_for :picks, @entry.picks.joins(:tournament).order("tournaments.name ASC") do |pf| %>
+    <%= f.fields_for :picks, @entry.picks.joins(:tournament).order("starts_at, tournaments.name ASC") do |pf| %>
       <div class="mb-4">
         <p class="block text-grey-darker text-sm font-bold mb-2">
           <%= pf.object.tournament.name %>

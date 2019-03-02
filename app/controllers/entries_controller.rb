@@ -1,7 +1,7 @@
 class EntriesController < ApplicationController
   def new
     @entry = Entry.new({
-      picks_attributes: Tournament.order("tournaments.name ASC").all.map{|t| Pick.new(tournament_id: t.id)}.map(&:attributes)
+      picks_attributes: Tournament.order("starts_at, tournaments.name ASC").all.map{|t| Pick.new(tournament_id: t.id)}.map(&:attributes)
     })
   end
 

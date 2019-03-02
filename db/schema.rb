@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_24_172750) do
+ActiveRecord::Schema.define(version: 2019_03_02_203927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 2019_02_24_172750) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "entry_id"
-    t.bigint "team_id"
     t.bigint "tournament_id"
+    t.bigint "team_id"
     t.index ["entry_id"], name: "index_picks_on_entry_id"
     t.index ["team_id"], name: "index_picks_on_team_id"
     t.index ["tournament_id"], name: "index_picks_on_tournament_id"
@@ -46,7 +46,9 @@ ActiveRecord::Schema.define(version: 2019_02_24_172750) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "starts_at"
     t.index ["name"], name: "index_tournaments_on_name"
+    t.index ["starts_at"], name: "index_tournaments_on_starts_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,5 +66,6 @@ ActiveRecord::Schema.define(version: 2019_02_24_172750) do
   add_foreign_key "entries", "users"
   add_foreign_key "picks", "entries"
   add_foreign_key "picks", "teams"
+  add_foreign_key "picks", "tournaments"
   add_foreign_key "teams", "tournaments"
 end
