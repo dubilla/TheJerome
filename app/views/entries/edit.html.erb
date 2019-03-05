@@ -1,5 +1,7 @@
 <h2 class="text-xl mb-4">Make Picks</h2>
 
+<p class="w-64 text-grey-dark mb-4 italic text-sm">All times in EST</p>
+
 <%= form_for @entry do |f| %>
   <fieldset>
     <%= f.fields_for :picks, @entry.picks do |pf| %>
@@ -10,7 +12,7 @@
               <%= pf.object.tournament.name %>
             </span>
             <span class="float-right">
-              <%= pf.object.tournament.starts_at.strftime("%B %e") %>
+              <%= pf.object.tournament.starts_at_est.strftime("%B %e, %l:%M %P") %>
             <span>
           </p>
           <div class="mb-2 inline-block relative w-64">
