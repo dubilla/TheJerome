@@ -3,6 +3,6 @@ class Tournament < ApplicationRecord
   has_many :picks
 
   def locked?
-    starts_at < Date.current
+    starts_at < DateTime.current
   end
 end
