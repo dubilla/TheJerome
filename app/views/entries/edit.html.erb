@@ -3,7 +3,7 @@
 <%= form_for @entry do |f| %>
   <fieldset>
     <%= f.fields_for :picks, @entry.picks do |pf| %>
-      <% if pf.object.tournament.locked? %>
+      <% if !pf.object.tournament.locked? %>
         <div class="mb-4">
           <p class="block text-grey-darker text-sm font-bold mb-2 w-64">
             <span class="text-left">
