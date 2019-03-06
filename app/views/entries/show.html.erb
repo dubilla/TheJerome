@@ -5,6 +5,11 @@
     <%= link_to 'Edit Entry', edit_entry_path(@entry) %>
   </div>
 
+  <div>
+    Points Possible Remaining:
+    <%= @entry.points_possible_remaining %>
+  </div>
+
   <div class="mt-8">
     <ul class="list-reset">
       <% @entry.picks.each do |p| %>
