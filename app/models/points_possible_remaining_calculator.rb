@@ -10,7 +10,7 @@ class PointsPossibleRemainingCalculator
   private
 
   def score
-    @entry.picks.map(&:score).reduce(:+)
+    @entry.score
   end
 
   def available_score
