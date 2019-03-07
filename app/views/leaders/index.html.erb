@@ -1,0 +1,18 @@
+<h2 class="mb-4">Leaderboard</h2>
+
+<table class="w-full text-left table-collapse">
+  <thead>
+    <tr>
+      <th class="text-sm font-semibold text-grey-darker p-2 bg-grey-lightest">Entry</th>
+      <th class="text-sm font-semibold text-grey-darker p-2 bg-grey-lightest">PPR</th>
+    </tr>
+  </thead>
+  <tbody class="align-baseline">
+    <% @leaders.each do |l|  %>
+      <tr>
+        <td class="p-2 border-t border-grey-light font-mono text-xs text-purple-dark whitespace-no-wrap"><%= l.user.email %></td>
+        <td class="p-2 border-t border-grey-light font-mono text-xs text-blue-dark whitespace-pre"><%= l.points_possible_remaining %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

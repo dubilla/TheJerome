@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show]
   resources :entries, only: [:new, :show, :edit, :update, :create]
+  resources :leaders, only: :index
 end
