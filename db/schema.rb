@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_06_030509) do
+ActiveRecord::Schema.define(version: 2019_03_07_025611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,12 +35,20 @@ ActiveRecord::Schema.define(version: 2019_03_06_030509) do
     t.index ["tournament_id"], name: "index_picks_on_tournament_id"
   end
 
+  create_table "rounds", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "tournament_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "eliminated"
+    t.bigint "round_id"
+    t.index ["round_id"], name: "index_teams_on_round_id"
     t.index ["tournament_id"], name: "index_teams_on_tournament_id"
   end
 
@@ -69,5 +77,6 @@ ActiveRecord::Schema.define(version: 2019_03_06_030509) do
   add_foreign_key "picks", "entries"
   add_foreign_key "picks", "teams"
   add_foreign_key "picks", "tournaments"
+  add_foreign_key "teams", "rounds"
   add_foreign_key "teams", "tournaments"
 end
