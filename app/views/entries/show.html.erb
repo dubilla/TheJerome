@@ -17,8 +17,13 @@
           <div class="text-black font-bold text-xl mb-2">
             <%= p.tournament.name %>
           </div>
-          <div class="text-grey-darker text-base">
-            <%= p.team.name %>
+          <div class="clear">
+            <div class="text-grey-darker text-base float-left">
+              <%= p.team.name %>
+            </div>
+            <div class="text-grey-dark float-right italic text-sm">
+              <%= p.team.round.name %>
+            </div>
           </div>
         </li>
       <% end %>
