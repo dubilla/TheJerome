@@ -9,7 +9,7 @@
         </div>
         <div class="clear">
           <div class="text-grey-darker text-base float-left">
-            <%= t.picks.map(&:entry).map(&:user).map(&:email).join(', ') %>
+            <%= t.picks.map(&:entry).map(&:name).join(', ') %>
           </div>
           <div class="text-grey-dark float-right italic text-sm">
             <%= t.round.name %>
