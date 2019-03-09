@@ -14,6 +14,10 @@ class PointsPossibleRemainingCalculator
   end
 
   def available_score
-    @entry.picks.map(&:team).reject(&:eliminated?).reject{|t| ['Finals', 'Champion'].include? t.round.name}.size * 5
+    @entry.picks.map(&:team).reject(&:eliminated?).select do |t|
+      !['Champion', 'Finals'].include? t.round.name
+    end.size * 5 + @entry.picks.map(&:team).reject(&:eliminated?).select do |t|
+      t.round.name == 'Finals'
+    end.size * 3
   end
 end
