@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :entries, only: [:new, :show, :edit, :update, :create]
   resources :leaders, only: :index
+  resources :tournaments, only: :show
 end
