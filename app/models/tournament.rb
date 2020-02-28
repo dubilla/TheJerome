@@ -1,6 +1,7 @@
 class Tournament < ApplicationRecord
   has_many :teams, inverse_of: :tournament
   has_many :picks
+  belongs_to :year
 
   def locked?
     starts_at < DateTime.current

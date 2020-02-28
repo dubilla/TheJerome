@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_09_184836) do
+ActiveRecord::Schema.define(version: 2020_02_28_020433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 2019_03_09_184836) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.bigint "year_id"
     t.index ["user_id"], name: "index_entries_on_user_id"
+    t.index ["year_id"], name: "index_entries_on_year_id"
   end
 
   create_table "picks", force: :cascade do |t|
@@ -60,8 +62,10 @@ ActiveRecord::Schema.define(version: 2019_03_09_184836) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "starts_at"
+    t.bigint "year_id"
     t.index ["name"], name: "index_tournaments_on_name"
     t.index ["starts_at"], name: "index_tournaments_on_starts_at"
+    t.index ["year_id"], name: "index_tournaments_on_year_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,10 +80,18 @@ ActiveRecord::Schema.define(version: 2019_03_09_184836) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "years", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "entries", "users"
+  add_foreign_key "entries", "years"
   add_foreign_key "picks", "entries"
   add_foreign_key "picks", "teams"
   add_foreign_key "picks", "tournaments"
   add_foreign_key "teams", "rounds"
   add_foreign_key "teams", "tournaments"
+  add_foreign_key "tournaments", "years"
 end

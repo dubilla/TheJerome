@@ -1,5 +1,6 @@
 class Entry < ApplicationRecord
   belongs_to :user
+  belongs_to :year
   has_many :picks, inverse_of: :entry
   accepts_nested_attributes_for :picks
 
