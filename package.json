@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
-    "lodash": "4.17.12",
+    "lodash": "4.17.13",
     "rails-ujs": "^5.2.2"
   },
   "devDependencies": {
@@ -11,7 +11,7 @@
     "webpack-dev-server": "2.11.2"
   },
   "resolutions" : {
-    "lodash": "4.17.12"
+    "lodash": "4.17.13"
   },
   "version": "1.16.0"
 }
