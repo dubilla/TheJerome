@@ -1,7 +1,7 @@
 class EntriesController < ApplicationController
   def new
     @entry = Entry.new({
-      picks_attributes: Tournament.order("starts_at, tournaments.name ASC").all.map{|t| Pick.new(tournament_id: t.id)}.map(&:attributes)
+      picks_attributes: Tournament.order("starts_at, tournaments.name ASC").joins(:year).where(years: { name: new_params[:year] }).map{|t| Pick.new(tournament_id: t.id)}.map(&:attributes)
     })
   end
 
@@ -35,6 +35,11 @@ class EntriesController < ApplicationController
   end
 
   private
+
+  def new_params
+    params
+      .fetch(:year, { name: '2020' })
+  end
 
   def entry_params
     params

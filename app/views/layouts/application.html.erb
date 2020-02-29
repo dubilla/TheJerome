@@ -20,7 +20,7 @@
           </li>
           <% if user_signed_in? && current_user.entry.present? %>
             <li class="mr-6">
-              <%= link_to 'Your Entry', current_user.entry, class: "text-blue hover:text-blue-darker" %>
+              <%= link_to 'Your Entry', current_user.current_entry, class: "text-blue hover:text-blue-darker" %>
             </li>
           <% end %>
           <li class="mr-6">
