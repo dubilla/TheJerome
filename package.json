@@ -8,5 +8,6 @@
   "devDependencies": {
     "tailwindcss": "^0.7.4",
     "webpack-dev-server": "2.11.2"
-  }
+  },
+  "version": "1.22.0"
 }
