@@ -17,6 +17,7 @@ class EntriesController < ApplicationController
   def update
     @entry = Entry.find(params[:id])
     authorize @entry
+    @entry.year = Year.find_by_name('2020')
     if @entry.update_attributes(entry_params)
       redirect_to @entry
     else
@@ -27,6 +28,7 @@ class EntriesController < ApplicationController
   def create
     @entry = Entry.new(entry_params)
     @entry.user = current_user
+    @entry.year = Year.find_by_name('2020')
     if @entry.save
       redirect_to @entry
     else
