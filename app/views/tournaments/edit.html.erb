@@ -1,0 +1,11 @@
+Edit <%= @tournament.year.name %> <%= @tournament.name %>
+
+<%= form_for @tournament do |f| %>
+  <fieldset>
+    <%= f.datetime_select :starts_at %>
+  </fieldset>
+  <br />
+  <div class="block">
+    <%= f.submit "Save Picks", class: "btn btn-blue" %>
+  </div>
+<% end %>
