@@ -1,7 +1,12 @@
-<ul>
+<table>
   <% @tournaments.each do |t| %>
-    <li>
-      <%= link_to "#{t.year.name} #{t.name}", edit_tournament_path(t) %>
-    </li>
+    <tr>
+      <td>
+        <%= link_to "#{t.year.name} #{t.name}", edit_tournament_path(t) %>
+      </td>
+      <td>
+        <%= t.starts_at %>
+      </td>
+    </tr>
   <% end %>
-</ul>
+</table>
