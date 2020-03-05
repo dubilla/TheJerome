@@ -1,7 +1,7 @@
 class TournamentsController < ApplicationController
   def index
     raise ActionController::RoutingError.new('Not Found') if !current_user.admin?
-    @tournaments = Tournament.includes(:year).order(:starts_at).all
+    @tournaments = Tournament.includes(:year).includes(:teams).order(:starts_at).all
   end
 
   def edit
