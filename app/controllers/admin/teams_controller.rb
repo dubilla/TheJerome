@@ -1,4 +1,4 @@
-class TeamsController < ApplicationController
+class Admin::TeamsController < ApplicationController
   def edit
     raise ActionController::RoutingError.new('Not Found') if !current_user.admin?
     @team = Team.find(params[:id])
@@ -8,7 +8,7 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
     if @team.update_attributes(team_params)
-      redirect_to tournaments_path
+      redirect_to admin_tournament_path(@team.tournament)
     else
       render 'edit'
     end

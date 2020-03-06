@@ -1,6 +1,6 @@
 Edit <%= @team.tournament.year.name %> <%= @team.name %>
 
-<%= form_for @team do |f| %>
+<%= form_with(model: [:admin, @team], local: true) do |f| %>
   <fieldset>
     <%= f.select :round_id, @rounds.map{|r| [r.name, r.id] }, prompt: 'Select' %>
   </fieldset>

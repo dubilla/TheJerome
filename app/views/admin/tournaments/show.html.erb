@@ -1,0 +1,9 @@
+<%= @tournament.year.name %> <%= @tournament.name %>
+
+<ul>
+  <% @tournament.teams.each do |t| %>
+    <li>
+      <%= link_to "#{t.name}", edit_admin_team_path(t) %>
+    </li>
+  <% end %>
+</ul>
