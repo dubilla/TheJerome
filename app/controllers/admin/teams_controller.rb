@@ -19,6 +19,6 @@ class Admin::TeamsController < ApplicationController
   def team_params
     params
       .require(:team)
-      .permit(:round_id)
+      .permit(:round_id, :eliminated)
   end
 end

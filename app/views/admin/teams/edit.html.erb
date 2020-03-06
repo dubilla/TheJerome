@@ -4,6 +4,10 @@ Edit <%= @team.tournament.year.name %> <%= @team.name %>
   <fieldset>
     <%= f.select :round_id, @rounds.map{|r| [r.name, r.id] }, prompt: 'Select' %>
   </fieldset>
+  <fieldset>
+    <label for="eliminated">Eliminated?</label>
+    <%= f.check_box :eliminated %>
+  </fieldset>
   <br />
   <div class="block">
     <%= f.submit "Save", class: "btn btn-blue" %>
