@@ -1,6 +1,6 @@
 Edit <%= @tournament.year.name %> <%= @tournament.name %>
 
-<%= form_for @tournament do |f| %>
+<%= form_with(model: [:admin, @tournament], local: true) do |f| %>
   <fieldset>
     <%= f.datetime_select :starts_at %>
   </fieldset>

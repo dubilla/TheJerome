@@ -2,7 +2,7 @@
   <% @tournaments.each do |t| %>
     <tr>
       <td>
-        <%= link_to "#{t.year.name} #{t.name}", edit_tournament_path(t) %>
+        <%= link_to "#{t.year.name} #{t.name}", edit_admin_tournament_path(t) %>
       </td>
       <td>
         <%= t.starts_at %>
