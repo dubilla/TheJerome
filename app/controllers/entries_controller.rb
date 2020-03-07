@@ -6,7 +6,7 @@ class EntriesController < ApplicationController
   end
 
   def show
-    @entry = Entry.includes(:user, picks: [:tournament, :team]).order("tournaments.starts_at").find(params[:id])
+    @entry = Entry.includes(:user, picks: [:tournament, team: :round]).order("tournaments.starts_at").find(params[:id])
   end
 
   def edit
