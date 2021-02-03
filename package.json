@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "tailwindcss": "^0.7.4",
-    "webpack-dev-server": "2.11.2"
+    "webpack-dev-server": "3"
   },
   "resolutions": {
     "lodash": "4.17.19"
