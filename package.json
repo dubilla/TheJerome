@@ -2,13 +2,13 @@
   "name": "TheJerome",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "3",
-    "lodash": "4.17.19",
+    "@rails/webpacker": "4",
     "rails-ujs": "^5.2.2"
   },
   "devDependencies": {
     "tailwindcss": "^0.7.4",
-    "webpack-dev-server": "3"
+    "webpack-dev-server": "3",
+    "lodash": "4.17.19"
   },
   "resolutions": {
     "lodash": "4.17.19"

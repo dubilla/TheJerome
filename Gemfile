@@ -34,7 +34,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'pry'
 gem 'pry-nav'
-gem 'webpacker', '~> 3.0'
+gem 'webpacker', '~> 4.0'
 gem 'pundit'
 
 group :development, :test do
