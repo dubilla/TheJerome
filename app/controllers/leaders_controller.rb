@@ -7,6 +7,6 @@ class LeadersController < ApplicationController
 
   def index_params
     params
-      .fetch(:year, {name: '2020'})
+      .fetch(:year, {active: true})
   end
 end

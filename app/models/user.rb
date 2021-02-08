@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :entries
-  has_one :entry, -> { joins(:year).where(years: { name: '2020'} ) }
+  has_one :entry, -> { joins(:year).where(years: { active: true } ) }
 end
